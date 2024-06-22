@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Launch Database",
+      "request": "launch",
+      "mainClass": "infra.Database",
+      "classpath": [
+        "C:/Users/Nickolas/dev/projeto_final/projeto final/lib/mysql-connector-j-8.3.0.jar",
+        "${workspaceFolder}/bin",
+        "${workspaceFolder}/src/infra",
+        "${workspaceFolder}/src/interfaces"
+      ],
+      "vmArgs": "-XX:+ShowCodeDetailsInExceptionMessages"
+    }
+  ]
+}
