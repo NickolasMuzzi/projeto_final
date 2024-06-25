@@ -1,21 +1,23 @@
-package interfaces;
+package ui;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-public class LoginScreen extends JFrame {
+import classes.User;
+import infra.Login;
 
-  // Variáveis para armazenar o texto dos campos
+public class LoginScreen extends JFrame {
   private String username;
   private String password;
 
-  public LoginScreen() {
+  public LoginScreen(ProductsPage productsPage) {
     setTitle("Tela de Login");
     setSize(400, 250);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setLocationRelativeTo(null);
+    setExtendedState(JFrame.MAXIMIZED_BOTH);
 
     JPanel panel = new JPanel(new GridBagLayout());
     panel.setBackground(new Color(60, 63, 65));
@@ -70,30 +72,39 @@ public class LoginScreen extends JFrame {
     add(panel);
 
     loginButton.addActionListener(
-      new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-          username = userText.getText();
-          password = new String(passwordText.getPassword());
+        new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+            username = userText.getText();
+            password = new String(passwordText.getPassword());
+            User loginUser = new User(username, password);
+            Login loginService = new Login();
+            try {
+              boolean userLogged = false;
+              userLogged = loginService.login(loginUser);
+              if (userLogged) {
+                productsPage.setVisible(true);
+                hidePage();
+              } else {
+                JOptionPane.showMessageDialog(
+                    null,
+                    "Usuário ou senha incorretos !");
+              }
+            } catch (Exception err) {
+              err.printStackTrace();
+            }
 
-          JOptionPane.showMessageDialog(
-            null,
-            "Usuário: " + username + "\nSenha: " + password
-          );
-        }
-      }
-    );
+          }
+        });
 
-    setVisible(true);
   }
 
-  public static void main(String[] args) {
-    SwingUtilities.invokeLater(
-      new Runnable() {
-        public void run() {
-          new LoginScreen();
-        }
-      }
-    );
+  public void showPanel(boolean visible) {
+    setVisible(visible);
   }
+
+  public void hidePage() {
+    setVisible(false);
+  }
+
 }

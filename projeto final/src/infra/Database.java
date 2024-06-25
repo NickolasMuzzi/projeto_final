@@ -7,14 +7,19 @@ public class Database {
 
   public Object connect() throws SQLException {
     try {
+
       return DriverManager.getConnection(
-        "jdbc:mysql://localhost:3306/projeto_final",
-        "root",
-        "04112002"
-      );
+          "jdbc:mysql://localhost:3306/projeto_final",
+          "root",
+          "04112002");
     } catch (SQLException e) {
       System.out.println("Erro de banco de dados");
       throw e;
     }
+  }
+
+  public static void main(String[] args) throws SQLException {
+    Database db = new Database();
+    db.connect();
   }
 }

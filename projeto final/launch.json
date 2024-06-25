@@ -7,10 +7,11 @@
       "request": "launch",
       "mainClass": "infra.Database",
       "classpath": [
-        "C:/Users/Nickolas/dev/projeto_final/projeto final/lib/mysql-connector-j-8.3.0.jar",
+        "${workspaceFolder}/lib/mysql-connector-j-8.3.0.jar",
         "${workspaceFolder}/bin",
         "${workspaceFolder}/src/infra",
-        "${workspaceFolder}/src/interfaces"
+        "${workspaceFolder}/src/ui",
+        "${workspaceFolder}/src/classes"
       ],
       "vmArgs": "-XX:+ShowCodeDetailsInExceptionMessages"
     }

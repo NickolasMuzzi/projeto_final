@@ -1,0 +1,11 @@
+{
+    "users": [],
+    "products": [],
+    "cart": [],
+    "payment": {
+        "type": "",
+        "items_amount": 0,
+        "price": 0.0,
+        "parcels": 0
+    }
+}

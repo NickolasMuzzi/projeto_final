@@ -1,4 +1,4 @@
-package infra;
+package classes;
 
 public class User {
 
