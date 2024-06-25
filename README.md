@@ -1,3 +1,7 @@
+# Este projeto foi desenvolvido por:
+ - Nickolas Muzzi Vitoriano Soares - RA: 12118984
+ - Bruno Amin Coutinho Oliveira - RA: 12121236
+
 ## Como rodar o projeto
  - Criar um banco de dados com MySQL e rodar os comandos SQL que estão no arquivo database.sql
  - Utilizando a versão 17 do JDK do java e o JDBC 8.2 para o MySQL, vá até o arquivo Database.java e altere as informações de login para conexão com o banco de dados.
